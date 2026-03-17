@@ -516,23 +516,21 @@ footer span { color:var(--teal); }
   btn.disabled = true;
 
   fetch("https://script.google.com/macros/s/AKfycbzmsogJQtj4noYvtfvqdsSIihmSu8CeDU-pnsmcLYUCnQKMQAmz3-curUJsOl888611/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(res => res.json())
-  .then(res => {
-    document.getElementById('regForm').style.display='none';
-    document.getElementById('regSuccess').classList.add('show');
-  })
-  .catch(err => {
-    alert("Error submitting form");
-    console.error(err);
-    btn.innerText = "Submit";
-    btn.disabled = false;
-  });
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json"
+  },
+  mode: "no-cors"
+})
+.then(() => {
+  document.getElementById('regForm').style.display='none';
+  document.getElementById('regSuccess').classList.add('show');
+})
+.catch(err => {
+  alert("Error submitting form");
+  console.error(err);
+});
 }
 </script>
 </body>
