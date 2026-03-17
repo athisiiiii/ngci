@@ -490,42 +490,45 @@ footer span { color:var(--teal); }
   });
 
   function submitReg() {
-    const name    = document.getElementById('rname').value.trim();
-    const dob     = document.getElementById('rdob').value;
-    const phone   = document.getElementById('rphone').value.trim();
-    const cel     = document.getElementById('rcourse');
-    const course  = cel.value;
-    const ctxt    = cel.options[cel.selectedIndex]?.text || '';
-    const address = document.getElementById('raddress').value.trim();
+  const name    = document.getElementById('rname').value.trim();
+  const dob     = document.getElementById('rdob').value;
+  const phone   = document.getElementById('rphone').value.trim();
+  const cel     = document.getElementById('rcourse');
+  const course  = cel.value;
+  const ctxt    = cel.options[cel.selectedIndex]?.text || '';
+  const address = document.getElementById('raddress').value.trim();
 
-    let valid = true;
-    [['rname',name],['rdob',dob],['rphone',phone],['rcourse',course],['raddress',address]].forEach(([id,val]) => {
-      const el = document.getElementById(id);
-      if(!val){ valid=false; el.style.borderColor='rgba(255,80,80,0.8)'; el.style.boxShadow='0 0 0 3px rgba(255,80,80,0.12)'; setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},3000); }
-    });
-    if(!valid) return;
+  if(!name || !dob || !phone || !course || !address){
+    alert("Please fill all fields");
+    return;
+  }
 
-    const dobFmt = new Date(dob).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
-    const msg = [
-      '🎓 *NEW STUDENT REGISTRATION*',
-      '━━━━━━━━━━━━━━━━━━━━━━',
-      '🏫 NEXTgen Computer Institute',
-      '📍 Tadubi Bazaar, Manipur',
-      '━━━━━━━━━━━━━━━━━━━━━━',
-      `👤 *Name:*    ${name}`,
-      `🎂 *DOB:*     ${dobFmt}`,
-      `📞 *Contact:* ${phone}`,
-      `📚 *Course:*  ${ctxt}`,
-      `🏠 *Address:* ${address}`,
-      '━━━━━━━━━━━━━━━━━━━━━━',
-      '📅 *Batch Starts:* 1st April, 2026',
-    ].join('\n');
+  const data = {
+    name: name,
+    dob: dob,
+    phone: phone,
+    course: ctxt,
+    address: address
+  };
 
-    window.open('https://wa.me/917019497529?text='+encodeURIComponent(msg),'_blank');
+  fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.json())
+  .then(res => {
     document.getElementById('regForm').style.display='none';
     document.getElementById('regSuccess').classList.add('show');
-    document.getElementById('regSuccess').scrollIntoView({behavior:'smooth',block:'center'});
-  }
+    window.open('https://wa.me/919863330216?text=New%20student%20registered','_blank');
+  })
+  .catch(err => {
+    alert("Error submitting form");
+    console.error(err);
+  });
+}
 </script>
 </body>
 </html>
