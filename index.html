@@ -394,14 +394,14 @@ footer span { color:var(--teal); }
             <textarea class="ftextarea" id="raddress" placeholder="Village / Town, District, State, PIN Code"></textarea>
           </div>
         </div>
-        <button class="fsub" onclick="submitReg()">💬 Submit &amp; Send via WhatsApp</button>
+        <button class="fsub" onclick="submitReg()">💬 Submit </button>
         <p class="fnote">💬 Your details will be sent to us via WhatsApp automatically &nbsp;·&nbsp; 🔒 Your info stays private</p>
       </div>
       <div class="fsuccess" id="regSuccess">
         <div class="sicon">🎉</div>
         <div class="stitle">Registration Received!</div>
         <div class="sdesc">
-          Thank you for registering with <strong style="color:var(--white)">NEXTgen Computer Institute</strong>.<br>
+          Thank you for registering with <strong style="color:var(--white)">NextGen Computer Institute</strong>.<br>
           We will contact you to confirm your seat.<br><br>
           <span style="color:var(--gold)">📞 +91-7019497529</span>
         </div>
@@ -467,7 +467,7 @@ footer span { color:var(--teal); }
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 <span>NEXTgen Computer Institute</span> · Tadubi Bazaar, Manipur · Affiliated with <span>ICERT</span> · All Rights Reserved</p>
+    <p>© 2026 <span>NextGen Computer Institute</span> · Tadubi Bazaar, Manipur · Affiliated with <span>ICERT</span> · All Rights Reserved</p>
   </footer>
 
   <!-- WA FLOAT -->
@@ -511,7 +511,11 @@ footer span { color:var(--teal); }
     address: address
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbxxxxxxx/exec", {
+  const btn = document.querySelector('.fsub');
+  btn.innerText = "Submitting...";
+  btn.disabled = true;
+
+  fetch("https://script.google.com/macros/s/AKfycbzmsogJQtj4noYvtfvqdsSIihmSu8CeDU-pnsmcLYUCnQKMQAmz3-curUJsOl888611/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -526,6 +530,8 @@ footer span { color:var(--teal); }
   .catch(err => {
     alert("Error submitting form");
     console.error(err);
+    btn.innerText = "Submit";
+    btn.disabled = false;
   });
 }
 </script>
