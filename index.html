@@ -6,6 +6,7 @@
 <title>NextGen Computer Institute</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/NGCI.png">
 <style>
 :root {
   --bg: #03080f;
@@ -41,10 +42,145 @@ body {
     padding: 10px 18px;
   }
 }
+.enroll-btn {
+  margin-top: 24px;
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--teal), var(--cyan));
+  color: var(--bg);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 24px rgba(0,229,200,0.25);
+  transition: all 0.3s;
+}
 
+.enroll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,229,200,0.4);
+}
+html{
+  scroll-behavior: smooth;
+}
+@media (max-width: 768px) {
+  .hero .logo-block {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+
+  .hero .logo-right {
+    align-items: center;
+  }
+
+  .hero .logo-left img {
+    max-width: 200px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 16px 40px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+}
+@media (max-width: 600px) {
+  .batch-badge {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .batch-text {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 600px) {
+  .enroll-btn {
+    width: 100%;
+    max-width: 180px;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .ci-text {
+    font-size: 30px !important;
+    align-items: center; /* balanced for mobile */
+  }
+  .logo-right {
+    align-items: center;  /* 👈 center block */
+  }
+
+  .icert-badge {
+    font-size: 8px;
+    padding: 5px 12px;
+  }
+}
+.logo-right {
+  justify-content: center;
+}
 
 /* till here */
+.logo-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+  /* gap: 30px;
+  flex-wrap: wrap; */
+}
 
+/* LOGO */
+.logo-left img {
+  max-width: 320px;
+  width: 80vw;
+  height: auto;
+}
+
+/* RIGHT SIDE TEXT */
+.logo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* COMPUTER INSTITUTE TEXT */
+.ci-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 45px;
+  font-weight: bolder;
+  color: white;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* ICERT BADGE */
+.icert-badge {
+  margin-top: 8px;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffd84d;
+  border: 1px solid rgba(255,216,77,0.5);
+  background: rgba(255,216,77,0.1);
+}
 /* BG */
 .bg-grid { position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,200,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,200,0.04) 1px,transparent 1px);background-size:48px 48px;z-index:0;pointer-events:none; }
 .bg-orbs { position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden; }
@@ -217,34 +353,44 @@ footer span { color:var(--teal); }
   <!-- HERO -->
   <div class="hero">
     <div class="logo-block">
-      <!-- NGCI LOGO – traced from official JPG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 145"
-           style="max-width:440px;width:85vw;height:auto;display:block;margin:0 auto;">
-        <!-- NE -->
-        <text x="0" y="100" font-family="'Arial Black',Impact,sans-serif" font-size="105" font-weight="900" fill="white">NE</text>
-        <!-- T -->
-        <text x="276" y="100" font-family="'Arial Black',Impact,sans-serif" font-size="105" font-weight="900" fill="white">T</text>
-        <!-- gen -->
-        <text x="190" y="143" font-family="'Arial Black',Impact,sans-serif" font-size="55" font-weight="900" fill="white">gen</text>
-        <!-- X – left stroke outline -->
-        <polygon points="196,4 218,4 244,104 222,104" fill="white"/>
-        <polygon points="202,8 214,8 239,100 227,100" fill="#03080f"/>
-        <!-- X – right stroke outline -->
-        <polygon points="244,4 266,4 242,104 220,104" fill="white"/>
-        <polygon points="248,8 261,8 237,100 225,100" fill="#03080f"/>
-        <!-- X – diagonal slash -->
-        <polygon points="252,0 258,0 228,112 222,112" fill="white"/>
-        <!-- Divider -->
-        <line x1="393" y1="10" x2="393" y2="135" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-        <!-- Computer Institute -->
-        <text x="403" y="60" font-family="'Space Grotesk','Arial',sans-serif" font-size="22" font-weight="700" fill="white" letter-spacing="1">Computer</text>
-        <text x="403" y="88" font-family="'Space Grotesk','Arial',sans-serif" font-size="22" font-weight="700" fill="white" letter-spacing="1">Institute</text>
-        <!-- ICERT badge -->
-        <rect x="403" y="100" width="90" height="18" rx="9" fill="rgba(255,216,77,0.12)" stroke="rgba(255,216,77,0.45)" stroke-width="1"/>
-        <text x="448" y="113" font-family="'Space Grotesk',sans-serif" font-size="7.5" fill="#ffd84d" text-anchor="middle" letter-spacing="0.8">ICERT AFFILIATED</text>
-      </svg>
-      <div class="tagline">Tadubi Bazaar &nbsp;·&nbsp; Manipur</div>
+
+  <!-- LEFT: LOGO -->
+  <div class="logo-left">
+    <img src="/NGCI.png" alt="NEXTgen Logo">
+  </div>
+
+  <!-- RIGHT: TEXT -->
+  <div class="logo-right">
+    <div class="ci-text">
+      <div>Computer</div>
+      <div>Institute</div>
     </div>
+
+    <div class="icert-badge">ICERT AFFILIATED</div>
+  </div>
+
+</div>
+
+<div class="tagline">Tadubi Bazaar &nbsp;·&nbsp; Manipur</div>
+
+  <!-- LEFT: LOGO -->
+  <!-- <div class="logo-left">
+    <img src="/NGCI.png" alt="NEXTgen Logo">
+  </div> -->
+
+  <!-- RIGHT: TEXT -->
+  <!-- <div class="logo-right">
+    <div class="ci-text">
+      <div>Computer</div>
+      <div>Institute</div>
+    </div>
+
+    <div class="icert-badge">ICERT AFFILIATED</div>
+  </div> -->
+
+<!-- </div>
+      <div class="tagline">Tadubi Bazaar &nbsp;·&nbsp; Manipur</div>
+    </div> -->
 
     <p class="hero-subtitle">Build Real Skills. <span>Launch Your Career.</span> Shape the Future.</p>
 
@@ -252,6 +398,7 @@ footer span { color:var(--teal); }
       <div class="batch-dot"></div>
       <div class="batch-text">New Batch Starting — 1st April 2026</div>
     </div>
+    <a href="#register" class="enroll-btn">Enroll Now</a>
 
     <div class="scroll-hint">
       <span>Explore</span>
@@ -358,7 +505,8 @@ footer span { color:var(--teal); }
   <div class="divider"></div>
 
   <!-- REGISTRATION -->
-  <div class="reg-sec animate-in">
+  <!-- <div class="reg-sec animate-in"> -->
+    <div id="register" class="reg-sec animate-in">
     <div class="sec-label">Join Us</div>
     <div class="sec-title">Register Now</div>
     <div class="reg-wrap">
