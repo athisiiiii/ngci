@@ -598,12 +598,11 @@ footer span { color:var(--teal); }
   </div>
 
   <!-- WHATSAPP -->
-  <a href="https://wa.me/917019497529?text=Hi%20I%20have%20completed%20my%20payment%20for%20NextGen%20Computer%20Institute.%20Please%20confirm%20my%20seat."
-     target="_blank"
-     class="enroll-btn"
-     style="margin-top:20px;">
-     📤 I Have Paid
-  </a>
+  <a href="#" onclick="sendWhatsApp()" 
+   class="enroll-btn"
+   style="margin-top:20px;">
+   📤 I Have Paid
+</a>
 
 </div>
     </div>
@@ -720,6 +719,27 @@ footer span { color:var(--teal); }
     },
     mode: "no-cors"
   }).catch(err => console.error(err));
+}
+function sendWhatsApp() {
+
+  const name  = document.getElementById('rname').value.trim();
+  const phone = document.getElementById('rphone').value.trim();
+  const courseSelect = document.getElementById('rcourse');
+  const course = courseSelect.options[courseSelect.selectedIndex]?.text || '';
+
+  const message = `Hi, I have completed my payment.
+
+Name: ${name}
+Phone: ${phone}
+Course: ${course}
+
+I am attaching my payment screenshot. Please confirm my admission.`;
+
+  const encodedMessage = encodeURIComponent(message);
+
+  const whatsappURL = `https://wa.me/917019497529?text=${encodedMessage}`;
+
+  window.open(whatsappURL, '_blank');
 }
 </script>
 </body>
