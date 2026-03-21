@@ -373,18 +373,7 @@ footer span { color:var(--teal); }
 
 <div class="tagline">Tadubi Bazaar &nbsp;·&nbsp; Manipur</div>
 <!-- Payment Section -->
-<div style="text-align:center;margin-top:20px;">
 
-  <p style="color:var(--muted);margin-bottom:10px;">
-    Choose Payment Method
-  </p>
-
-  <!-- Paytm -->
- <a href="upi://pay?pa=7019497529@ptyes&pn=NextGen%20Computer%20Institute&cu=INR"
-   class="enroll-btn"
-   target="_blank">
-   💰 Pay via UPI
-</a>
 
 <!-- Payment Section end  -->
 
@@ -560,14 +549,63 @@ footer span { color:var(--teal); }
         <button class="fsub" onclick="submitReg()">💬 Submit </button>
         <p class="fnote">💬 Your details will be sent to us via WhatsApp automatically &nbsp;·&nbsp; 🔒 Your info stays private</p>
       </div>
-      <div class="fsuccess" id="regSuccess">
+      <!-- <div class="fsuccess" id="regSuccess">
         <div class="sicon">🎉</div>
         <div class="stitle">Registration Received!</div>
         <div class="sdesc">
           Thank you for registering with <strong style="color:var(--white)">NextGen Computer Institute</strong>.<br>
           We will contact you to confirm your seat.<br><br>
         </div>
-      </div>
+      </div> -->
+      <div class="fsuccess" id="regSuccess">
+
+  <div class="sicon">🎉</div>
+
+  <div class="stitle">Registration Received!</div>
+
+  <div class="sdesc" style="margin-bottom:20px;">
+    Please complete your payment to confirm your seat.
+  </div>
+
+  <!-- PAYMENT CARD -->
+  <div style="
+    margin-top:10px;
+    padding:20px;
+    border-radius:16px;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(0,229,200,0.2);
+  ">
+
+    <p style="color:var(--muted);font-size:0.85rem;margin-bottom:10px;">
+      Scan QR to pay
+    </p>
+
+    <img src="payment-qr.png"
+         style="width:180px;border-radius:10px;">
+
+    <div style="margin-top:10px;color:#ffd84d;font-weight:600;">
+      ₹2500
+    </div>
+
+    <p style="color:var(--muted);font-size:0.75rem;margin-top:5px;">
+      Paytm · Google Pay · PhonePe
+    </p>
+
+    <p style="color:#ff7675;font-size:0.8rem;margin-top:10px;">
+  ⚠️ Seat confirmed only after payment
+</p>
+
+  </div>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/917019497529?text=Hi%20I%20have%20completed%20my%20payment%20for%20NextGen%20Computer%20Institute.%20Please%20confirm%20my%20seat."
+     target="_blank"
+     class="enroll-btn"
+     style="margin-top:20px;">
+     📤 I Have Paid
+  </a>
+
+</div>
     </div>
   </div>
 
@@ -666,33 +704,22 @@ footer span { color:var(--teal); }
   }
 
   const data = {
-    name: name,
-    dob: dob,
-    phone: phone,
-    course: ctxt,
-    address: address
+    name, dob, phone, course: ctxt, address
   };
 
-  const btn = document.querySelector('.fsub');
-  btn.innerText = "Submitting...";
-  btn.disabled = true;
-
-  fetch("https://script.google.com/macros/s/AKfycbzmsogJQtj4noYvtfvqdsSIihmSu8CeDU-pnsmcLYUCnQKMQAmz3-curUJsOl888611/exec", {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: {
-    "Content-Type": "application/json"
-  },
-  mode: "no-cors"
-})
-.then(() => {
+  // 🔥 SHOW SUCCESS IMMEDIATELY
   document.getElementById('regForm').style.display='none';
   document.getElementById('regSuccess').classList.add('show');
-})
-.catch(err => {
-  alert("Error submitting form");
-  console.error(err);
-});
+
+  // SEND DATA (background)
+  fetch("https://script.google.com/macros/s/AKfycbzmsogJQtj4noYvtfvqdsSIihmSu8CeDU-pnsmcLYUCnQKMQAmz3-curUJsOl888611/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    mode: "no-cors"
+  }).catch(err => console.error(err));
 }
 </script>
 </body>
